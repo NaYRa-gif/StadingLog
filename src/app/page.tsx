@@ -34,7 +34,7 @@ export default function Page() {
         <InputForm onAdd={addLog}></InputForm>
 
         {/* リスト表示エリア */}
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4 mb-8 mt-6">
           {logs.length === 0 && (
             <p className="text-center text-gray-400">まだ投稿はありません。</p>
           )}
