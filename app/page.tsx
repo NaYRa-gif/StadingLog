@@ -1,4 +1,5 @@
 "use client"
+import { log } from 'console';
 import { useState } from 'react';
 
 interface Log {
@@ -26,6 +27,11 @@ export default function Page() {
   //削除機能
   const clearLogs = () => {
     setLogs([]);
+  }
+
+  //一部削除機能
+  const deleteLog = (id:number) => {
+    setLogs(logs.filter((log) => log.id !== id));
   }
 
   return (
@@ -57,9 +63,17 @@ export default function Page() {
           )}
 
           {logs.map((log) => (
-            <div key={log.id} className="border-b border-gray-100 pb-4">
-              <p className="text-gray-800 text-lg">{log.content}</p>
-              <p className="text-xs text-gray-400 mt-1">{log.date}</p>
+            <div key={log.id} className="flex border-b border-gray-100 pb-4">
+              <div>
+                <p className="text-gray-800 text-lg">{log.content}</p>
+                <p className="text-xs text-gray-400 mt-1">{log.date}</p>
+              </div>
+              <button
+                onClick={() => deleteLog(log.id)}
+                className="text-white text-sm bg-red-500 px-2 py-1 rounded-lg mt-2 ml-auto hover:bg-red-600 transition"
+              >
+                削除
+              </button>
             </div>
           ))}
         </div>
@@ -73,7 +87,6 @@ export default function Page() {
             履歴をすべて削除
           </button>
         )}
-
       </div>
     </div>
   )
