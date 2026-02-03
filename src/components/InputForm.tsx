@@ -15,7 +15,7 @@ export default function InputForm({ onAdd }: InputFormProps) {
     }
 
     return (
-        <div>
+        <div className="flex gap-2 mb-8">
             <input
                 type="text"
                 className="flex-1 border-2 border-gray-200 p-2 rounded-lg text-black focus:outline-none focus:border-blue-500"
